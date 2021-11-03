@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Posts from "./components/Posts";
 import Header from "./components/Header";
+import Connect from "./components/Connect";
 import "./App.css";
 
 const App = () => {
@@ -64,12 +65,33 @@ const App = () => {
 	];
 	const [post, setPost] = useState([{ id: "", title: "", content: "" }]);
 	const [posts, setPosts] = useState(example);
-	const [users, setUsers] = useState([]);
+	const [users, setUsers] = useState([
+		{ username: "zaraki", password: "zaraki" },
+		{ username: "mike", password: "mike" },
+		{ username: "viki", password: "viki" },
+	]);
+	const [isConnected, setIsConnected] = useState(false);
+	const [displayUser, setDisplayUser] = useState("none");
+	const [displayConnectForm, setConnectForm] = useState("none");
 	return (
 		<div>
-			<Header />
+			<Header
+				isConnected={isConnected}
+				setIsConnected={setIsConnected}
+				displayUser={displayUser}
+				setDisplayUser={setDisplayUser}
+				displayConnectForm={displayConnectForm}
+				setConnectForm={setConnectForm}
+			/>
 			<h1>Reddit Blog</h1>
 			<Posts post={post} setPost={setPost} posts={posts} setPosts={setPosts} />
+			<Connect
+				users={users}
+				isConnected={isConnected}
+				setIsConnected={setIsConnected}
+				displayConnectForm={displayConnectForm}
+				setConnectForm={setConnectForm}
+			/>
 		</div>
 	);
 };

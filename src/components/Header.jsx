@@ -2,7 +2,17 @@ import React from "react";
 import logo from "/Users/zarakious/Documents/All React/lorem-ipsum/src/components/img/blog.svg";
 import Login from "./Login";
 
-const Header = () => {
+const Header = ({
+	isConnected,
+	setIsConnected,
+	displayUser,
+	setDisplayUser,
+	displayConnectForm,
+	setConnectForm,
+}) => {
+	const handleDisplayConnect = (e) => {
+		setConnectForm("");
+	};
 	return (
 		<div className="header-wrapper">
 			<div className="navigation-container">
@@ -16,7 +26,15 @@ const Header = () => {
 				</div>
 			</div>
 			<div className="user-profile">
-				<Login />
+				<Login
+					isConnected={isConnected}
+					setIsConnected={setIsConnected}
+					displayUser={displayUser}
+					setDisplayUser={setDisplayUser}
+					displayConnectForm={displayConnectForm}
+					setConnectForm={setConnectForm}
+					handleDisplayConnect={handleDisplayConnect}
+				/>
 			</div>
 		</div>
 	);
