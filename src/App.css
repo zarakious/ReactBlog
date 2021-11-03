@@ -471,7 +471,6 @@ textarea:focus {
 }
 .user-profile {
 	display: flex;
-	padding-top: 2rem;
 	gap: 1rem;
 	padding-right: 1rem;
 	justify-content: flex-end;

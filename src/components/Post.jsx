@@ -23,6 +23,7 @@ const Post = ({ post, comment, setComment, setCommentsList, commentsList }) => {
 		setCounter(counter + 1);
 		setUpDisabled(true);
 		setDownDisabled(false);
+		console.log("state Changed ");
 	};
 	const hadleDislikes = () => {
 		counter > 0 ? setCounter(counter - 1) : setCounter(0);
